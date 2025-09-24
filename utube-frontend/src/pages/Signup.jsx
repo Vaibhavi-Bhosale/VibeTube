@@ -31,7 +31,7 @@ function Signup() {
     
     if(response.success)
     {
-       console.log(response.data.username);
+      
        toast.success(response.message)
 
        navigate("/login")

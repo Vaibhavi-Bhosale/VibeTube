@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getComments, addComment, deleteComment } from "../api/comment";
 import { Trash2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 function CommentsSection({ videoId }) {
@@ -10,15 +11,14 @@ function CommentsSection({ videoId }) {
   const [loadingComments, setLoadingComments] = useState(false);
   const [postingComment, setPostingComment] = useState(false);
 
-  const userId = useSelector((state)=>state.auth?.user?._id)
-
+  const userId = useSelector((state) => state.auth?.user?._id);
 
   // Fetch comments
   const loadComments = async () => {
     setLoadingComments(true);
     const res = await getComments(videoId);
     if (res.success) {
-    setComments(res.data);
+      setComments(res.data);
     } else {
       toast.error(res.message || "Failed to load comments");
     }
@@ -61,7 +61,7 @@ function CommentsSection({ videoId }) {
 
   return (
     <div className="w-full max-w-4xl mt-6">
-      <h3 className="text-xl font-semibold mb-2">Comments</h3>
+      <h3 className="text-xl font-semibold mb-2 text-white">Comments</h3>
 
       {/* Add Comment */}
       <div className="flex gap-2 mb-4">
@@ -70,12 +70,12 @@ function CommentsSection({ videoId }) {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Add a comment..."
-          className="flex-1 bg-gray-800 rounded-lg px-3 py-2 text-white outline-none"
+          className="flex-1 bg-black text-white border border-gray-700 rounded-lg px-3 py-2 outline-none"
         />
         <button
           onClick={handleAddComment}
           disabled={postingComment}
-          className="bg-blue-600 px-4 rounded-lg hover:bg-blue-500 transition disabled:opacity-50"
+          className="bg-white text-black px-4 rounded-lg hover:opacity-80 transition disabled:opacity-50"
         >
           {postingComment ? "Posting..." : "Post"}
         </button>
@@ -91,21 +91,25 @@ function CommentsSection({ videoId }) {
           {comments.map((comment) => (
             <div
               key={comment._id}
-              className="flex items-start gap-3 bg-gray-800 p-3 rounded-lg shadow-md"
+              className="flex items-start gap-3 bg-black border border-gray-700 p-3 rounded-xl shadow-sm"
             >
               {/* Avatar */}
-              <img
-                src={comment.owner.avatar}
-                alt={comment.owner.username}
-                className="w-10 h-10 rounded-full border border-gray-700"
-              />
+              <Link to={`/profile/${comment.owner._id}`}>
+                <img
+                  src={comment.owner.avatar}
+                  alt={comment.owner.username}
+                  className="w-10 h-10 rounded-full border border-gray-600 hover:opacity-80 transition cursor-pointer"
+                />
+              </Link>
 
               {/* Comment Content */}
               <div className="flex-1">
                 <div className="flex justify-between items-center">
-                  <p className="text-sm font-semibold text-white">
-                    {comment.owner.username}
-                  </p>
+                  <Link to={`/profile/${comment.owner._id}`}>
+                    <p className="text-white font-semibold text-sm hover:underline cursor-pointer">
+                      {comment.owner.username}
+                    </p>
+                  </Link>
                   {comment.owner._id === userId && (
                     <button
                       onClick={() => handleDeleteComment(comment._id)}
@@ -115,7 +119,9 @@ function CommentsSection({ videoId }) {
                     </button>
                   )}
                 </div>
-                <p className="text-gray-300 text-sm mt-1">{comment.content}</p>
+                <p className="text-gray-300 text-sm mt-1 break-words">
+                  {comment.content}
+                </p>
               </div>
             </div>
           ))}
@@ -126,4 +132,3 @@ function CommentsSection({ videoId }) {
 }
 
 export default CommentsSection;
- 
