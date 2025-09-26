@@ -38,7 +38,7 @@ export default function Header() {
     <>
       {/* Desktop Sidebar */}
       <div className="hidden md:flex fixed z-50 top-0 left-0 h-screen w-48 bg-black text-[#ECDFCC] flex-col p-4 shadow-lg">
-        <h1 className="text-xl font-bold mb-6 text-center">MyApp</h1>
+        <h1 className="text-xl font-bold mb-6 text-center">VibeTube</h1>
 
         <nav className="flex flex-col gap-4">
           {links.map((link) => (
