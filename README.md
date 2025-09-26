@@ -102,7 +102,7 @@ Open http://localhost:5173 in your browser.
 
   ---
 
-## 🤝 Contributors
+## 🤝 Contributor
 
 - **Vaibhavi Bhosale** – [GitHub](https://github.com/Vaibhavi-Bhosale)
 
