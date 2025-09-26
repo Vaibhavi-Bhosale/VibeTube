@@ -25,7 +25,7 @@ VibeTube is a **YouTube-like web application** built with the MERN stack. Users 
 ## 🎯 Demo
 
 - **Frontend:** [https://vibetube-v.netlify.app](https://vibetube-v.netlify.app)  
-- **Backend:** [https://vibetube.onrender.com](https://vibetube.onrender.com)  
+- **Backend:**  backend hosted on Render
 
 ## 📦 Installation
 
