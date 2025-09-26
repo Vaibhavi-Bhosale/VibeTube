@@ -53,7 +53,7 @@ function AllVideos({ user = "", query = "" }) {
             >
               {/* Thumbnail */}
               <Link to={`/video/${video._id}`}>
-                <div className="relative w-full h-48">
+                <div className="relative w-full h-48  ">
                   <img
                     src={video.thumbnail}
                     alt={video.title}
@@ -66,18 +66,18 @@ function AllVideos({ user = "", query = "" }) {
 
                 {/* Details */}
                 <div className="md:p-4 p-1">
-                  <h2 className="text-lg font-semibold text-gray-100 truncate">
+                  <h2 className="md:text-lg text-sm text-gray-100 truncate">
                     {video.title}
                   </h2>
-                  <p className="text-gray-400 text-sm mt-1">
-                    {video.views} views
-                  </p>
+                   
                 </div>
               </Link>
             </div>
           ))}
         </div>
       )}
+
+      <div className="p-10 "></div>
     </div>
   );
 }

@@ -18,8 +18,8 @@ function SearchBar() {
           <input
             type="search"
             id="default-search"
-            class="block w-full p-3 ps-10 text-sm text-white placeholder-gray-400 border border-gray-600 rounded-lg bg-black focus:ring-gray-300 focus:border-gray-300"
-            placeholder="Search..."
+            class="block w-full p-3 ps-10 text-sm text-white placeholder-gray-400 border border-gray-600  rounded-none md:rounded-lg bg-black focus:ring-gray-300 "
+
             required
           />
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">

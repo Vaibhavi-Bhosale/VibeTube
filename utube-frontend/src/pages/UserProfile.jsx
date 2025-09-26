@@ -94,11 +94,11 @@ function UserProfile() {
 
             <div className="">
               <p className="  text-gray-500 font-bold">{profile.username}</p>
-              <p className="font-bold text-3xl text-white">
+              <p className="md:font-bold font-semibold md:text-3xl font-2xl text-white">
                 {profile.fullname}
               </p>
 
-              <div className="md:pt-5 pt-3 flex md:gap-5 flex-col md:flex-row font-bold md:text-2xl">
+              <div className="md:pt-5 pt-3 flex md:gap-5 flex-col md:flex-row md:font-bold font-semibold text-1xl md:text-2xl">
                 <Link to={`/channel-list/${userId}/${subsriber}`}>
                   <p>subscriber {profile.subscriberCount}</p>
                 </Link>

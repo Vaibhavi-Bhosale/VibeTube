@@ -92,7 +92,7 @@ function Tweet() {
       <div className="sticky top-0 z-10 bg-white shadow-sm border-b">
         <Container>
           <div className="flex justify-between items-center py-3">
-            <h1 className="text-xl font-semibold text-gray-800">Tweets</h1>
+            
             <Link
               to="/create-tweet"
               className="px-4 py-2 rounded-full bg-white text-black hover:bg-gray-200 cursor-pointer transition font-bold"
@@ -121,7 +121,10 @@ function Tweet() {
                 handleLike={handleLike}
               />
             ))}
+
+            <div className='p-10 '></div>
           </div>
+ 
         )}
       </Container>
     </div>
